@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        header {
+            width: 100%;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+        }
+
+        header img {
+            height: 50px;
+        }
+
+        header h1 {
+            font-size: 24px;
+            margin-left: 20px;
+        }
+
+        form {
+            padding: 30px;
+            width: 350px;
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        form h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #000;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .forgot-password {
+            display: block;
+            margin: 10px 0;
+            text-decoration: underline;
+            font-size: 14px;
+        }
+
+        .thank-you-message {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            padding: 10px 20px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        footer a img {
+            height: 20px;
+        }
+    </style>
+    <script>
+        function handleForgotPassword() {
+            const email = prompt("Enter your email to reset the password:");
+            if (email) {
+                alert(`Password reset instructions sent to ${email}.`);
+            } else {
+                alert("Email is required to reset the password.");
+            }
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            document.getElementById("login-form").style.display = "none";
+            document.getElementById("thank-you").style.display = "block";
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <img src="https://via.placeholder.com/50" alt="Logo">
+    <h1>Login Page</h1>
+</header>
+
+<div id="login-form">
+    <form onsubmit="handleLogin(event)">
+        <h2>Login</h2>
+        <input type="text" placeholder="Username" required>
+        <input type="password" placeholder="Password" required>
+        <a href="#" class="forgot-password" onclick="handleForgotPassword()">Forgot Password?</a>
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+<div id="thank-you" style="display: none;">
+    <p class="thank-you-message">Thank you for logging in!</p>
+</div>
+
+<footer>
+    <a href="https://www.youtube.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube"></a>
+    <a href="https://www.instagram.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a>
+    <a href="https://www.linkedin.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Linkedin_icon.svg" alt="LinkedIn"></a>
+</footer>
+
+</body>
+</html>
